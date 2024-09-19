@@ -48,4 +48,9 @@ public interface TerminalSessionClient {
 
     void logStackTrace(String tag, Exception e);
 
+    void onTerminalCursorStateChange(TerminalSession session);
+
+    void onTerminalCursorStateChange();
+
+    void logError(String string);
 }

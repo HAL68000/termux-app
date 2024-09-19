@@ -91,4 +91,19 @@ public class TermuxTerminalSessionClientBase implements TerminalSessionClient {
         Logger.logStackTrace(tag, e);
     }
 
+    @Override
+    public void onTerminalCursorStateChange(TerminalSession session) {
+
+    }
+
+    @Override
+    public void onTerminalCursorStateChange() {
+
+    }
+
+    @Override
+    public void logError(String string) {
+
+    }
+
 }

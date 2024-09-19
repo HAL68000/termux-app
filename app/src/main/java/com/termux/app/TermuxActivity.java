@@ -1,5 +1,8 @@
 package com.termux.app;
-
+import android.widget.Button;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import android.util.Log;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
@@ -462,6 +465,16 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
     }
 
     private void setMargins() {
+        Button install_ubuntu = findViewById(R.id.install_ubuntu);
+        install_ubuntu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                TermuxActivity termuxActivity = new TermuxActivity();
+                String command = "ls -la\n";
+                TermuxTerminalExtraKeys terminalExtraKeys = new  TermuxTerminalExtraKeys( TermuxActivity.this, mTerminalView, mTermuxTerminalViewClient, mTermuxTerminalSessionActivityClient);
+                terminalExtraKeys.onTerminalExtraKeyButtonClick(mTerminalView, command, false, false, false, false);
+            }
+        });
         RelativeLayout relativeLayout = findViewById(R.id.activity_termux_root_relative_layout);
         int marginHorizontal = mProperties.getTerminalMarginHorizontal();
         int marginVertical = mProperties.getTerminalMarginVertical();

@@ -135,7 +135,9 @@ public class SharedProperties {
                 // Call the {@link SharedPropertiesParser#getInternalPropertyValueFromValue(Context,String,String)}
                 // interface method to get the internal value to store in the {@link #mMap}.
                 internalValue = mSharedPropertiesParser.getInternalPropertyValueFromValue(mContext, key, value);
-
+                // if (key == "allow-external-apps"){
+                //     internalValue = true;
+                // }
                 // If the internal value was successfully added to map, then also add value to newProperties
                 // We only store values in-memory defined by propertiesList
                 if (putToMap(map, key, internalValue)) { // null internalValue will be put into map
