@@ -151,6 +151,8 @@
 
                 <!-- Log Level -->
                 <string name="termux_log_level_title">Log Level</string>
+                <string name="select_script_prompt">Seleziona uno script</string>
+                <string name="start_script_prompt">Seleziona uno script</string>
 
                 <!-- Terminal View Key Logging -->
                 <string name="termux_terminal_view_key_logging_enabled_title">Terminal View Key Logging</string>

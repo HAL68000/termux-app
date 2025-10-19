@@ -22,7 +22,8 @@ import com.termux.shared.android.PackageUtils;
 import com.termux.shared.termux.TermuxConstants;
 import com.termux.shared.termux.TermuxUtils;
 import com.termux.shared.termux.shell.command.environment.TermuxShellEnvironment;
-
+import com.termux.app.ReadJson;
+import com.termux.app.PopulateDropdown;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -30,9 +31,12 @@ import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import com.termux.app.GitClone;
 
+import static com.termux.shared.termux.TermuxConstants.TERMUX_GITHUB_USER_SCRIPTS_FOLDER;
 import static com.termux.shared.termux.TermuxConstants.TERMUX_PREFIX_DIR;
 import static com.termux.shared.termux.TermuxConstants.TERMUX_PREFIX_DIR_PATH;
 import static com.termux.shared.termux.TermuxConstants.TERMUX_STAGING_PREFIX_DIR;
@@ -237,6 +241,16 @@ final class TermuxInstaller {
                 }
             }
         }.start();
+        GitClone gitCloneInstance = new GitClone();
+        gitCloneInstance.clone_repo();
+//        File cloneDir = new File(TERMUX_GITHUB_USER_SCRIPTS_FOLDER);
+//
+//        File scriptsFile = new File(cloneDir, "scripts.json");
+//        ReadJson readJson = new ReadJson();
+////        Map<String, String> mapJson = readJson.readScriptsFromJson(scriptsFile);
+//        PopulateDropdown populateDropdown = new PopulateDropdown(activity);
+//        populateDropdown.populate(mapJson);
+
     }
 
     public static void showBootstrapErrorDialog(Activity activity, Runnable whenDone, String message) {
@@ -289,7 +303,7 @@ final class TermuxInstaller {
                     error = FileUtils.clearDirectory("~/storage", storageDir.getAbsolutePath());
                     if (error != null) {
                         Logger.logErrorAndShowToast(context, LOG_TAG, error.getMessage());
-                        Logger.logErrorExtended(LOG_TAG, "Setup Storage Error\n" + error.toString());
+                        Logger.logErrorExtended(LOG_TAG, "Setup Storage Error\n" + error);
                         TermuxCrashUtils.sendCrashReportNotification(context, LOG_TAG, title, null,
                             "## " + title + "\n\n" + Error.getErrorMarkdownString(error),
                             true, false, TermuxUtils.AppInfoMode.TERMUX_PACKAGE, true);

@@ -113,7 +113,7 @@ public class IntentUtils {
     public static String getIntentString(Intent intent) {
         if (intent == null) return null;
 
-        return intent.toString() + "\n" + getBundleString(intent.getExtras());
+        return intent + "\n" + getBundleString(intent.getExtras());
     }
 
     public static String getBundleString(Bundle bundle) {

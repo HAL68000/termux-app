@@ -440,7 +440,7 @@ public final class TerminalEmulator {
         if (!isCursorEnabled())
             return false;
         else
-            return mCursorBlinkingEnabled ? mCursorBlinkState : true;
+            return !mCursorBlinkingEnabled || mCursorBlinkState;
     }
 
     public void setCursorBlinkingEnabled(boolean cursorBlinkingEnabled) {
@@ -940,7 +940,7 @@ public final class TerminalEmulator {
                             char c;
                             for (int i = 0; i < part.length(); i += 2) {
                                 try {
-                                    c = (char) Long.decode("0x" + part.charAt(i) + "" + part.charAt(i + 1)).longValue();
+                                    c = (char) Long.decode("0x" + part.charAt(i) + part.charAt(i + 1)).longValue();
                                 } catch (NumberFormatException e) {
                                     Logger.logStackTraceWithMessage(mClient, LOG_TAG, "Invalid device termcap/terminfo encoded name \"" + part + "\"", e);
                                     continue;
@@ -1993,7 +1993,7 @@ public final class TerminalEmulator {
                     String clipboardText = new String(Base64.decode(textParameter.substring(startIndex), 0), StandardCharsets.UTF_8);
                     mSession.onCopyTextToClipboard(clipboardText);
                 } catch (Exception e) {
-                    Logger.logError(mClient, LOG_TAG, "OSC Manipulate selection, invalid string '" + textParameter + "");
+                    Logger.logError(mClient, LOG_TAG, "OSC Manipulate selection, invalid string '" + textParameter);
                 }
                 break;
             case 104:

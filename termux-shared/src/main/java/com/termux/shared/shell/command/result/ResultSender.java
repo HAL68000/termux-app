@@ -72,7 +72,7 @@ public class ResultSender {
 
         logTag = DataUtils.getDefaultIfNull(logTag, LOG_TAG);
 
-        Logger.logDebugExtended(logTag, "Sending result for command \"" + label + "\":\n" + resultConfig.toString() + "\n" + ResultData.getResultDataLogString(resultData, logStdoutAndStderr));
+        Logger.logDebugExtended(logTag, "Sending result for command \"" + label + "\":\n" + resultConfig + "\n" + ResultData.getResultDataLogString(resultData, logStdoutAndStderr));
 
         String resultDataStdout = resultData.stdout.toString();
         String resultDataStderr = resultData.stderr.toString();
@@ -180,7 +180,7 @@ public class ResultSender {
 
         resultConfig.resultDirectoryPath = FileUtils.getCanonicalPath(resultConfig.resultDirectoryPath, null);
 
-        Logger.logDebugExtended(logTag, "Writing result for command \"" + label + "\":\n" + resultConfig.toString() + "\n" + ResultData.getResultDataLogString(resultData, logStdoutAndStderr));
+        Logger.logDebugExtended(logTag, "Writing result for command \"" + label + "\":\n" + resultConfig + "\n" + ResultData.getResultDataLogString(resultData, logStdoutAndStderr));
 
         // If resultDirectoryPath is not a directory, or is not readable or writable, then just return
         // Creation of missing directory and setting of read, write and execute permissions are
@@ -259,9 +259,7 @@ public class ResultSender {
             // Move error or output temp file to final destination
             error = FileUtils.moveRegularFile("error or output temp file", resultConfig.resultDirectoryPath + "/" + temp_filename,
                 resultConfig.resultDirectoryPath + "/" + resultConfig.resultFileBasename, false);
-            if (error != null) {
-                return error;
-            }
+            return error;
         } else {
             String filename;
 
@@ -338,12 +336,8 @@ public class ResultSender {
             filename = RESULT_SENDER.RESULT_FILE_ERR_PREFIX + resultConfig.resultFilesSuffix;
             error = FileUtils.moveRegularFile(RESULT_SENDER.RESULT_FILE_ERR_PREFIX + " temp file", resultConfig.resultDirectoryPath + "/" + temp_filename,
                 resultConfig.resultDirectoryPath + "/" + filename, false);
-            if (error != null) {
-                return error;
-            }
+            return error;
         }
-
-        return null;
     }
 
 }

@@ -506,33 +506,25 @@ public class TermuxUtils {
     public static String getReportIssueMarkdownString(@NonNull final Context context) {
         if (context == null) return "null";
 
-        StringBuilder markdownString = new StringBuilder();
+        String markdownString = "## Where To Report An Issue" +
+            "\n\n" + context.getString(R.string.msg_report_issue, TermuxConstants.TERMUX_WIKI_URL) + "\n" +
+            "\n\n### Email\n" +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_SUPPORT_EMAIL_URL, TermuxConstants.TERMUX_SUPPORT_EMAIL_MAILTO_URL) + "  " +
+            "\n\n### Reddit\n" +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_REDDIT_SUBREDDIT, TermuxConstants.TERMUX_REDDIT_SUBREDDIT_URL) + "  " +
+            "\n\n### GitHub Issues for Termux apps\n" +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_APP_NAME, TermuxConstants.TERMUX_GITHUB_ISSUES_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_API_APP_NAME, TermuxConstants.TERMUX_API_GITHUB_ISSUES_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_BOOT_APP_NAME, TermuxConstants.TERMUX_BOOT_GITHUB_ISSUES_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_FLOAT_APP_NAME, TermuxConstants.TERMUX_FLOAT_GITHUB_ISSUES_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_STYLING_APP_NAME, TermuxConstants.TERMUX_STYLING_GITHUB_ISSUES_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_TASKER_APP_NAME, TermuxConstants.TERMUX_TASKER_GITHUB_ISSUES_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_WIDGET_APP_NAME, TermuxConstants.TERMUX_WIDGET_GITHUB_ISSUES_REPO_URL) + "  " +
+            "\n\n### GitHub Issues for Termux packages\n" +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_PACKAGES_GITHUB_REPO_NAME, TermuxConstants.TERMUX_PACKAGES_GITHUB_ISSUES_REPO_URL) + "  " +
+            "\n##\n";
 
-        markdownString.append("## Where To Report An Issue");
-
-        markdownString.append("\n\n").append(context.getString(R.string.msg_report_issue, TermuxConstants.TERMUX_WIKI_URL)).append("\n");
-
-        markdownString.append("\n\n### Email\n");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_SUPPORT_EMAIL_URL, TermuxConstants.TERMUX_SUPPORT_EMAIL_MAILTO_URL)).append("  ");
-
-        markdownString.append("\n\n### Reddit\n");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_REDDIT_SUBREDDIT, TermuxConstants.TERMUX_REDDIT_SUBREDDIT_URL)).append("  ");
-
-        markdownString.append("\n\n### GitHub Issues for Termux apps\n");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_APP_NAME, TermuxConstants.TERMUX_GITHUB_ISSUES_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_API_APP_NAME, TermuxConstants.TERMUX_API_GITHUB_ISSUES_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_BOOT_APP_NAME, TermuxConstants.TERMUX_BOOT_GITHUB_ISSUES_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_FLOAT_APP_NAME, TermuxConstants.TERMUX_FLOAT_GITHUB_ISSUES_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_STYLING_APP_NAME, TermuxConstants.TERMUX_STYLING_GITHUB_ISSUES_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_TASKER_APP_NAME, TermuxConstants.TERMUX_TASKER_GITHUB_ISSUES_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_WIDGET_APP_NAME, TermuxConstants.TERMUX_WIDGET_GITHUB_ISSUES_REPO_URL)).append("  ");
-
-        markdownString.append("\n\n### GitHub Issues for Termux packages\n");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_PACKAGES_GITHUB_REPO_NAME, TermuxConstants.TERMUX_PACKAGES_GITHUB_ISSUES_REPO_URL)).append("  ");
-
-        markdownString.append("\n##\n");
-
-        return markdownString.toString();
+        return markdownString;
     }
 
     /**
@@ -544,34 +536,27 @@ public class TermuxUtils {
     public static String getImportantLinksMarkdownString(@NonNull final Context context) {
         if (context == null) return "null";
 
-        StringBuilder markdownString = new StringBuilder();
+        String markdownString = "## Important Links" +
+            "\n\n### GitHub\n" +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_APP_NAME, TermuxConstants.TERMUX_GITHUB_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_API_APP_NAME, TermuxConstants.TERMUX_API_GITHUB_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_BOOT_APP_NAME, TermuxConstants.TERMUX_BOOT_GITHUB_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_FLOAT_APP_NAME, TermuxConstants.TERMUX_FLOAT_GITHUB_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_STYLING_APP_NAME, TermuxConstants.TERMUX_STYLING_GITHUB_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_TASKER_APP_NAME, TermuxConstants.TERMUX_TASKER_GITHUB_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_WIDGET_APP_NAME, TermuxConstants.TERMUX_WIDGET_GITHUB_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_PACKAGES_GITHUB_REPO_NAME, TermuxConstants.TERMUX_PACKAGES_GITHUB_REPO_URL) + "  " +
+            "\n\n### Email\n" +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_SUPPORT_EMAIL_URL, TermuxConstants.TERMUX_SUPPORT_EMAIL_MAILTO_URL) + "  " +
+            "\n\n### Reddit\n" +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_REDDIT_SUBREDDIT, TermuxConstants.TERMUX_REDDIT_SUBREDDIT_URL) + "  " +
+            "\n\n### Wiki\n" +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_WIKI, TermuxConstants.TERMUX_WIKI_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_APP_NAME, TermuxConstants.TERMUX_GITHUB_WIKI_REPO_URL) + "  " +
+            "\n" + MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_PACKAGES_GITHUB_REPO_NAME, TermuxConstants.TERMUX_PACKAGES_GITHUB_WIKI_REPO_URL) + "  " +
+            "\n##\n";
 
-        markdownString.append("## Important Links");
-
-        markdownString.append("\n\n### GitHub\n");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_APP_NAME, TermuxConstants.TERMUX_GITHUB_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_API_APP_NAME, TermuxConstants.TERMUX_API_GITHUB_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_BOOT_APP_NAME, TermuxConstants.TERMUX_BOOT_GITHUB_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_FLOAT_APP_NAME, TermuxConstants.TERMUX_FLOAT_GITHUB_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_STYLING_APP_NAME, TermuxConstants.TERMUX_STYLING_GITHUB_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_TASKER_APP_NAME, TermuxConstants.TERMUX_TASKER_GITHUB_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_WIDGET_APP_NAME, TermuxConstants.TERMUX_WIDGET_GITHUB_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_PACKAGES_GITHUB_REPO_NAME, TermuxConstants.TERMUX_PACKAGES_GITHUB_REPO_URL)).append("  ");
-
-        markdownString.append("\n\n### Email\n");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_SUPPORT_EMAIL_URL, TermuxConstants.TERMUX_SUPPORT_EMAIL_MAILTO_URL)).append("  ");
-
-        markdownString.append("\n\n### Reddit\n");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_REDDIT_SUBREDDIT, TermuxConstants.TERMUX_REDDIT_SUBREDDIT_URL)).append("  ");
-
-        markdownString.append("\n\n### Wiki\n");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_WIKI, TermuxConstants.TERMUX_WIKI_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_APP_NAME, TermuxConstants.TERMUX_GITHUB_WIKI_REPO_URL)).append("  ");
-        markdownString.append("\n").append(MarkdownUtils.getLinkMarkdownString(TermuxConstants.TERMUX_PACKAGES_GITHUB_REPO_NAME, TermuxConstants.TERMUX_PACKAGES_GITHUB_WIKI_REPO_URL)).append("  ");
-
-        markdownString.append("\n##\n");
-
-        return markdownString.toString();
+        return markdownString;
     }
 
 
@@ -618,13 +603,11 @@ public class TermuxUtils {
         if (!executionCommand.resultData.stderr.toString().isEmpty())
             Logger.logErrorExtended(LOG_TAG, executionCommand.toString());
 
-        StringBuilder markdownString = new StringBuilder();
+        String markdownString = "## " + TermuxConstants.TERMUX_APP_NAME + " APT Info\n\n" +
+            executionCommand.resultData.stdout +
+            "\n##\n";
 
-        markdownString.append("## ").append(TermuxConstants.TERMUX_APP_NAME).append(" APT Info\n\n");
-        markdownString.append(executionCommand.resultData.stdout.toString());
-        markdownString.append("\n##\n");
-
-        return markdownString.toString();
+        return markdownString;
     }
 
     /**
@@ -677,23 +660,22 @@ public class TermuxUtils {
         // Build script output
         StringBuilder logcatOutput = new StringBuilder();
         logcatOutput.append("$ ").append(logcatScript);
-        logcatOutput.append("\n").append(executionCommand.resultData.stdout.toString());
+        logcatOutput.append("\n").append(executionCommand.resultData.stdout);
 
         boolean stderrSet = !executionCommand.resultData.stderr.toString().isEmpty();
         if (executionCommand.resultData.exitCode != 0 || stderrSet) {
             Logger.logErrorExtended(LOG_TAG, executionCommand.toString());
             if (stderrSet)
-                logcatOutput.append("\n").append(executionCommand.resultData.stderr.toString());
+                logcatOutput.append("\n").append(executionCommand.resultData.stderr);
             logcatOutput.append("\n").append("exit code: ").append(executionCommand.resultData.exitCode.toString());
         }
 
         // Build markdown output
-        StringBuilder markdownString = new StringBuilder();
-        markdownString.append("## Logcat Dump\n\n");
-        markdownString.append("\n\n").append(MarkdownUtils.getMarkdownCodeForString(logcatOutput.toString(), true));
-        markdownString.append("\n##\n");
+        String markdownString = "## Logcat Dump\n\n" +
+            "\n\n" + MarkdownUtils.getMarkdownCodeForString(logcatOutput.toString(), true) +
+            "\n##\n";
 
-        return markdownString.toString();
+        return markdownString;
     }
 
 

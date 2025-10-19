@@ -324,7 +324,6 @@ public final class TermuxConstants {
     /*
      * Termux organization variables.
      */
-
     /** Termux GitHub organization name */
     public static final String TERMUX_GITHUB_ORGANIZATION_NAME = "termux"; // Default: "termux"
     /** Termux GitHub organization url */
@@ -650,6 +649,11 @@ public final class TermuxConstants {
 
     /** Termux app $HOME directory path */
     public static final String TERMUX_HOME_DIR_PATH = TERMUX_FILES_DIR_PATH + "/home"; // Default: "/data/data/com.termux/files/home"
+    public static final String TERMUX_GITHUB_USER_SCRIPTS_FOLDER = TERMUX_HOME_DIR_PATH+"/repo/scripts";
+    public static final String TERMUX_GITHUB_USER_SCRIPTS_FOLDER_INSTALLER = TERMUX_HOME_DIR_PATH+"/repo/scripts/install_script";
+    public static final String TERMUX_GITHUB_USER_SCRIPTS_FOLDER_START = TERMUX_HOME_DIR_PATH+"/repo/scripts/start_script";
+    public static final String TERMUX_GITHUB_USER_REPO = "https://github.com/HAL68000/scripts.git";
+
     /** Termux app $HOME directory */
     public static final File TERMUX_HOME_DIR = new File(TERMUX_HOME_DIR_PATH);
 

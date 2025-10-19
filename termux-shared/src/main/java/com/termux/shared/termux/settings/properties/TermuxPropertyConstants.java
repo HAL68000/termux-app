@@ -13,6 +13,7 @@ import com.termux.view.TerminalView;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -467,15 +468,13 @@ public final class TermuxPropertyConstants {
      * "true" -> false
      * default: false
      */
-    public static final Set<String> TERMUX_DEFAULT_INVERETED_FALSE_BOOLEAN_BEHAVIOUR_PROPERTIES_LIST = new HashSet<>(Arrays.asList(
-    ));
+    public static final Set<String> TERMUX_DEFAULT_INVERETED_FALSE_BOOLEAN_BEHAVIOUR_PROPERTIES_LIST = new HashSet<>(Collections.emptyList());
 
     /** Defines the set for keys loaded by termux that have default inverted boolean behaviour with true as default.
      * "false" -> true
      * "true" -> false
      * default: true
      */
-    public static final Set<String> TERMUX_DEFAULT_INVERETED_TRUE_BOOLEAN_BEHAVIOUR_PROPERTIES_LIST = new HashSet<>(Arrays.asList(
-    ));
+    public static final Set<String> TERMUX_DEFAULT_INVERETED_TRUE_BOOLEAN_BEHAVIOUR_PROPERTIES_LIST = new HashSet<>(Collections.emptyList());
 
 }

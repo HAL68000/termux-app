@@ -1,4 +1,9 @@
 package com.termux.app;
+import static com.termux.shared.termux.TermuxConstants.TERMUX_GITHUB_USER_SCRIPTS_FOLDER;
+import static com.termux.shared.termux.TermuxConstants.TERMUX_GITHUB_USER_SCRIPTS_FOLDER_INSTALLER;
+import static com.termux.shared.termux.TermuxConstants.TERMUX_GITHUB_USER_SCRIPTS_FOLDER_START;
+
+import android.app.Activity;
 import android.widget.Button;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -61,7 +66,7 @@ import com.termux.terminal.TerminalSession;
 import com.termux.terminal.TerminalSessionClient;
 import com.termux.view.TerminalView;
 import com.termux.view.TerminalViewClient;
-
+import com.termux.app.GitClone;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -69,7 +74,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import java.util.Arrays;
-
+import java.io.File;
+import java.util.Map;
 /**
  * A terminal emulator activity.
  * <p/>
@@ -430,6 +436,18 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
 
         // Update the {@link TerminalSession} and {@link TerminalEmulator} clients.
         mTermuxService.setTermuxTerminalSessionClient(mTermuxTerminalSessionActivityClient);
+        File installerDir = new File(TERMUX_GITHUB_USER_SCRIPTS_FOLDER_INSTALLER);
+        File startDir = new File(TERMUX_GITHUB_USER_SCRIPTS_FOLDER_START);
+        populateDropdown(installerDir,((Activity) this).findViewById(R.id.scriptsSpinner));
+        populateDropdown(startDir,((Activity) this).findViewById(R.id.startScriptsSpinner)); //startScriptsSpinner
+    }
+
+    private void populateDropdown(File directory, android.widget.Spinner spinner) {
+        File scriptsFile = new File(directory, "scripts.json");
+        ReadJson readJson = new ReadJson();
+        Map<String, String> mapJson = readJson.readScriptsFromJson(scriptsFile);
+        PopulateDropdown populateDropdown = new PopulateDropdown(this,mTerminalView,mTermuxTerminalViewClient,mTermuxTerminalSessionActivityClient,spinner);
+        populateDropdown.populate(mapJson);
     }
 
     @Override
@@ -465,7 +483,7 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
     }
 
     private void setMargins() {
-        Button install_ubuntu = findViewById(R.id.install_ubuntu);
+        Button install_ubuntu = findViewById(R.id.refresh_scripts);
         install_ubuntu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -847,12 +865,12 @@ public final class TermuxActivity extends AppCompatActivity implements ServiceCo
     }
 
     public DrawerLayout getDrawer() {
-        return (DrawerLayout) findViewById(R.id.drawer_layout);
+        return findViewById(R.id.drawer_layout);
     }
 
 
     public ViewPager getTerminalToolbarViewPager() {
-        return (ViewPager) findViewById(R.id.terminal_toolbar_view_pager);
+        return findViewById(R.id.terminal_toolbar_view_pager);
     }
 
     public float getTerminalToolbarDefaultHeight() {

@@ -6,12 +6,37 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
     <Button
-        android:id="@+id/install_ubuntu"
+        android:id="@+id/refresh_scripts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Install Ubuntu" />
-    <RelativeLayout
+        android:text="Refresh scripts" />
+
+        <Spinner
+            android:id="@+id/scriptsSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:prompt="@string/select_script_prompt"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            tools:visibility="visible" />
+        <Spinner
+            android:id="@+id/startScriptsSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:prompt="@string/start_script_prompt"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            tools:visibility="visible" />
+    </LinearLayout>    <RelativeLayout
         android:id="@+id/activity_termux_root_relative_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"

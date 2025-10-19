@@ -1748,10 +1748,7 @@ public class FileUtils {
 
         // Create the file parent directory
         error = createParentDirectoryFile(label + "file parent", filePath);
-        if (error != null)
-            return error;
-
-        return null;
+        return error;
     }
 
 

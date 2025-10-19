@@ -1,11 +1,13 @@
 package com.termux.app;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
 import android.content.Context;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.IOException;
 
 public class AssetReader {
     public static String readAssetFile(Context context, String fileName) {

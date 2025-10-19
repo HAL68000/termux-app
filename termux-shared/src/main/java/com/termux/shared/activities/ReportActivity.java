@@ -275,7 +275,7 @@ public class ReportActivity extends AppCompatActivity {
             mReportActivityMarkdownString = this.getString(R.string.msg_report_truncated) +
                 DataUtils.getTruncatedCommandOutput(reportString.toString(), ACTIVITY_TEXT_SIZE_LIMIT_IN_BYTES, true, false, false);
         } else if (truncated) {
-            mReportActivityMarkdownString = this.getString(R.string.msg_report_truncated) + reportString.toString();
+            mReportActivityMarkdownString = this.getString(R.string.msg_report_truncated) + reportString;
         } else {
             mReportActivityMarkdownString = reportString.toString();
         }
